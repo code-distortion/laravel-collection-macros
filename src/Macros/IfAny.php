@@ -11,13 +11,13 @@ use Illuminate\Support\Collection;
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return \Illuminate\Support\Collection
+ * @return \Illuminate\Support\Collection|\Illuminate\Support\LazyCollection
  */
 class IfAny
 {
     public function __invoke()
     {
-        return function (callable $callback): Collection {
+        return function (callable $callback): self {
             if (! $this->isEmpty()) {
                 $callback($this);
             }

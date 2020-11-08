@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class SectionByTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_section_a_collection_by_key()
     {
         $expected = [
@@ -34,7 +37,10 @@ class SectionByTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_use_custom_keys_for_the_section_and_items()
     {
         $collection = $this->getDummyCollection();
@@ -71,7 +77,10 @@ class SectionByTest extends TestCase
         })->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_preserve_keys()
     {
         $collection = $this->getDummyCollection();

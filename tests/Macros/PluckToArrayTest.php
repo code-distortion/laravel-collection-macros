@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class PluckToArrayTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_array_of_attributes()
     {
         $result = Collection::make([
@@ -23,7 +26,10 @@ class PluckToArrayTest extends TestCase
         $this->assertTrue(is_array($result));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_return_array_of_attributes_with_correct_keys()
     {
         $result = Collection::make([

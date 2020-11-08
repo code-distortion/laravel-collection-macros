@@ -7,13 +7,19 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class SliceBeforeTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_provides_slice_before_macro()
     {
         $this->assertTrue(Collection::hasMacro('sliceBefore'));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_a_given_callback()
     {
         $collection = new Collection([10, 34, 51, 17, 47, 64, 9, 44, 20, 59, 66, 77]);
@@ -34,7 +40,10 @@ class SliceBeforeTest extends TestCase
         $this->assertEquals($expected, $sliced->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_a_given_callback_with_preserving_the_original_keys()
     {
         $collection = new Collection([10, 34, 51, 17, 47, 64, 9, 44, 20, 59, 66, 77]);
@@ -56,7 +65,10 @@ class SliceBeforeTest extends TestCase
         $this->assertEquals($expected, $toArray);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_complex_data_with_a_given_callback_without_preserving_the_original_keys()
     {
         $collection = new Collection([10, [34, 51], [17], 47, [64, 9], 44, [20], [59], [66], 77]);
@@ -78,7 +90,10 @@ class SliceBeforeTest extends TestCase
         $this->assertEquals($expected, $sliced->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_complex_data_with_a_given_callback_with_preserving_the_original_keys()
     {
         $collection = new Collection([10, [34, 51], [17], 47, [64, 9], 44, [20], [59], [66], 77]);
@@ -100,7 +115,10 @@ class SliceBeforeTest extends TestCase
         $this->assertEquals($expected, $sliced->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_a_given_callback_without_preserving_the_original_associative_keys()
     {
         $collection = new Collection(['a' => 10, 'b' => 34, 'c' => 51, 'd' => 17, 'e' => 47, 'f' => 64, 'g' => 9, 'h' => 44, 'i' => 20, 'j' => 59, 'k' => 66, 'l' => 77]);
@@ -121,7 +139,10 @@ class SliceBeforeTest extends TestCase
         $this->assertEquals($expected, $sliced->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_slice_before_the_collection_with_a_given_callback_with_preserving_the_original_associative_keys()
     {
         $collection = new Collection(['a' => 10, 'b' => 34, 'c' => 51, 'd' => 17, 'e' => 47, 'f' => 64, 'g' => 9, 'h' => 44, 'i' => 20, 'j' => 59, 'k' => 66, 'l' => 77]);

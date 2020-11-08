@@ -7,13 +7,19 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class HeadTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_provides_head_macro()
     {
         $this->assertTrue(Collection::hasMacro('head'));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_first_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -21,7 +27,10 @@ class HeadTest extends TestCase
         $this->assertEquals(1, $data->head());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_null_if_the_collection_is_empty()
     {
         $data = new Collection();

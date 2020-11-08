@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class GetHumanCountTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_first_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -15,7 +18,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(1, $data->first());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_second_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -23,7 +29,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(2, $data->second());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_third_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -31,7 +40,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(3, $data->third());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_fourth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -39,7 +51,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(4, $data->fourth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_fifth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -47,7 +62,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(5, $data->fifth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_sixth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -55,7 +73,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(6, $data->sixth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_seventh_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -63,7 +84,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(7, $data->seventh());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_eighth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -71,7 +95,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(8, $data->eighth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_ninth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -79,7 +106,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(9, $data->ninth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_gets_the_tenth_item_of_the_collection()
     {
         $data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -87,7 +117,10 @@ class GetHumanCountTest extends TestCase
         $this->assertEquals(10, $data->tenth());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_null_if_index_is_undefined()
     {
         $data = new Collection();

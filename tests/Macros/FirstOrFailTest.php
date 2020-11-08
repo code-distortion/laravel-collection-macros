@@ -8,7 +8,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class FirstOrFailTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_first_item_when_there_is_one()
     {
         $result = Collection::make([1, 2, 3, 4])->firstOrFail();
@@ -16,7 +19,10 @@ class FirstOrFailTest extends TestCase
         $this->assertEquals(1, $result);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_throws_exception_when_there_are_no_items()
     {
         $this->expectException(CollectionItemNotFound::class);

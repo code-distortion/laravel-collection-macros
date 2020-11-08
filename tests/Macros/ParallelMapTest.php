@@ -19,7 +19,10 @@ class ParallelMapTest extends TestCase
         $this->stopWatch = new Stopwatch();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_perform_async_map_operations()
     {
         $this->startStopWatch();
@@ -35,7 +38,10 @@ class ParallelMapTest extends TestCase
         $this->assertEquals([10, 20, 30, 40, 50], $collection->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_limit_worker_pool_size_with_pool()
     {
         $this->startStopWatch();
@@ -49,7 +55,10 @@ class ParallelMapTest extends TestCase
         $this->assertTookMoreThanSeconds(2);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_limit_worker_pool_size_with_int()
     {
         $this->startStopWatch();
@@ -61,7 +70,10 @@ class ParallelMapTest extends TestCase
         $this->assertTookMoreThanSeconds(2);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_handle_a_large_collection()
     {
         $elementCount = 1000;
@@ -79,7 +91,10 @@ class ParallelMapTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_handle_large_responses()
     {
         $sources = Collection::make([

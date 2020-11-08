@@ -13,7 +13,7 @@ class IfEmpty
 {
     public function __invoke()
     {
-        return function (callable $callback): Collection {
+        return function (callable $callback): self {
             if ($this->isEmpty()) {
                 $callback($this);
             }

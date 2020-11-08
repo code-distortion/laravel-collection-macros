@@ -1,267 +1,59 @@
 # A set of useful Laravel collection macros
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-collection-macros.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-collection-macros)
-![Run tests](https://github.com/spatie/laravel-collection-macros/workflows/Run%20tests/badge.svg)
-![Check & fix styling](https://github.com/spatie/laravel-collection-macros/workflows/Check%20&%20fix%20styling/badge.svg)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-collection-macros.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-collection-macros)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/code-distortion/laravel-collection-macros.svg?style=flat-square)](https://packagist.org/packages/code-distortion/laravel-collection-macros)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/code-distortion/laravel-collection-macros?style=flat-square)
+![Laravel](https://img.shields.io/badge/laravel-7%20%26%208-blue?style=flat-square)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/code-distortion/laravel-collection-macros/run-tests?label=tests&style=flat-square)](https://github.com/code-distortion/laravel-collection-macros/actions)
+[![Buy us a tree](https://img.shields.io/badge/treeware-%F0%9F%8C%B3-lightgreen?style=flat-square)](https://ecologi.com/treeware?gift-trees)
 
-This repository contains some useful collection macros.
+This package is a fork of [spatie/laravel-collection-macros](https://github.com/spatie/laravel-collection-macros). It contains a subset of the original macros as well as a few extra ones.
 
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+This package is intended for PERSONAL USE. Please see the original Spatie package if you would like to submit a PR or request a feature.
 
-## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-collection-macros.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-collection-macros)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
-You can pull in the package via composer:
+Install the package via composer:
 
 ``` bash
-composer require spatie/laravel-collection-macros
+composer require code-distortion/laravel-collection-macros
 ```
 
 The package will automatically register itself.
 
+
+
 ## Macros
 
-- [`after`](#after)
-- [`at`](#at)
-    - [`second`](#second)
-    - [`third`](#third)
-    - [`fourth`](#fourth)
-    - [`fifth`](#fifth)
-    - [`sixth`](#sixth)
-    - [`seventh`](#seventh)
-    - [`eighth`](#eighth)
-    - [`ninth`](#ninth)
-    - [`tenth`](#tenth)
-- [`before`](#before)
+Macros kept from the original spatie package:
+
 - [`catch`](#catch)
-- [`chunkBy`](#chunkby)
-- [`collectBy`](#collectBy)
-- [`eachCons`](#eachcons)
 - [`extract`](#extract)
-- [`filterMap`](#filtermap)
-- [`firstOrFail`](#firstorfail)
-- [`fromPairs`](#frompairs)
 - [`glob`](#glob)
-- [`groupByModel`](#groupbymodel)
-- [`head`](#head)
 - [`ifAny`](#ifany)
 - [`ifEmpty`](#ifempty)
 - [`none`](#none)
 - [`paginate`](#paginate)
-- [`parallelMap`](#parallelmap)
-- [`pluckToArray`](#plucktoarray)
 - [`prioritize`](#prioritize)
-- [`rotate`](#rotate)
-- [`sectionBy`](#sectionby)
 - [`simplePaginate`](#simplepaginate)
-- [`sliceBefore`](#slicebefore)
-- [`tail`](#tail)
 - [`try`](#try)
-- [`toPairs`](#topairs)
 - [`transpose`](#transpose)
 - [`validate`](#validate)
-- [`withSize`](#withsize)
 
-### `after`
+New macros added:
 
-Get the next item from the collection.
+- [`keepValues`](#keepvalues)
+- [`keyedKeys`](#keyedkeys)
+- [`rejectValues`](#rejectvalues)
 
-```php
-$collection = collect([1,2,3]);
 
-$currentItem = 2;
-
-$currentItem = $collection->after($currentItem); // return 3;
-$collection->after($currentItem); // return null;
-
-$currentItem = $collection->after(function($item) {
-    return $item > 1;
-}); // return 3;
-```
-
-You can also pass a second parameter to be used as a fallback.
-
-```php
-$collection = collect([1,2,3]);
-
-$currentItem = 3;
-
-$collection->after($currentItem, $collection->first()); // return 1;
-```
-
-### `at`
-
-Retrieve an item at an index.
-
-```php
-$data = new Collection([1, 2, 3]);
-
-$data->at(0); // 1
-$data->at(1); // 2
-$data->at(-1); // 3
-```
-
-### `second`
-Retrieve item at the second index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->second(); // 2
-```
-
-### `third`
-Retrieve item at the third index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->third(); // 3
-```
-
-### `fourth`
-Retrieve item at the fourth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->fourth(); // 4
-```
-
-### `fifth`
-Retrieve item at the fifth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->fifth(); // 5
-```
-
-### `sixth`
-Retrieve item at the sixth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->sixth(); // 6
-```
-
-### `seventh`
-Retrieve item at the seventh index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->seventh(); // 7
-```
-
-### `eighth`
-Retrieve item at the eighth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->eighth(); // 8
-```
-
-### `ninth`
-Retrieve item at the ninth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->ninth(); // 9
-```
-
-### `tenth`
-Retrieve item at the tenth index.
-
-```php
-$data = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
-$data->tenth(); // 10
-```
-
-### `before`
-
-Get the previous item from the collection.
-
-```php
-$collection = collect([1,2,3]);
-
-$currentItem = 2;
-
-$currentItem = $collection->before($currentItem); // return 1;
-$collection->before($currentItem); // return null;
-
-$currentItem = $collection->before(function($item) {
-    return $item > 2;
-}); // return 2;
-```
-
-You can also pass a second parameter to be used as a fallback.
-
-```php
-$collection = collect([1,2,3]);
-
-$currentItem = 1;
-
-$collection->before($currentItem, $collection->last()); // return 3;
-```
 
 ### `catch`
 
 See [`Try`](#try)
 
-### `chunkBy`
 
-Chunks the values from a collection into groups as long the given callback is true. If the optional parameter `$preserveKeys` as `true` is passed, it will preserve the original keys.
-
-```php
-collect(['A', 'A', 'B', 'A'])->chunkBy(function($item) {
-    return $item == 'A';
-}); // return Collection([['A', 'A'],['B'], ['A']])
-```
-
-### `collectBy`
-
-Get an item at a given key, and collect it.
-
-```php
-$collection = collect([
-    'foo' => [1, 2, 3],
-    'bar' => [4, 5, 6],
-]);
-
-$collection->collectBy('foo'); // Collection([1, 2, 3])
-```
-
-You can also pass a second parameter to be used as a fallback.
-
-```php
-$collection = collect([
-    'foo' => [1, 2, 3],
-    'bar' => [4, 5, 6],
-]);
-
-$collection->collectBy('baz', ['Nope']); // Collection(['Nope'])
-```
-
-### `eachCons`
-
-Get the following consecutive neighbours in a collection from a given chunk size. If the optional parameter `$preserveKeys` as `true` is passed, it will preserve the original keys.
-
-```php
-collect([1, 2, 3, 4])->eachCons(2); // return collect([[1, 2], [2, 3], [3, 4]])
-```
 
 ### `extract`
 
@@ -276,41 +68,7 @@ Extract keys from a collection. This is very similar to `only`, with two key dif
 [$name, $role] = collect($user)->extract('name', 'role.name');
 ```
 
-### `filterMap`
 
-Map a collection and remove falsy values in one go.
-
-```php
-$collection = collect([1, 2, 3, 4, 5, 6])->filterMap(function ($number) {
-    $quotient = $number / 3;
-
-    return is_integer($quotient) ? $quotient : null;
-});
-
-$collection->toArray(); // returns [1, 2]
-```
-
-### `firstOrFail`
-
-Get the first item. Throws `Spatie\CollectionMacros\Exceptions\CollectionItemNotFound` if the item was not found.
-
-```php
-$collection = collect([1, 2, 3, 4, 5, 6])->firstOrFail();
-
-$collection->toArray(); // returns [1]
-
-collect([])->firstOrFail(); // throws Spatie\CollectionMacros\Exceptions\CollectionItemNotFound
-```
-
-### `fromPairs`
-
-Transform a collection into an associative array form collection item.
-
-```php
-$collection = collect([['a', 'b'], ['c', 'd'], ['e', 'f']])->fromPairs();
-
-$collection->toArray(); // returns ['a' => 'b', 'c' => 'd', 'e' => 'f']
-```
 
 ### `glob`
 
@@ -320,34 +78,7 @@ Returns a collection of a `glob()` result.
 Collection::glob('config/*.php');
 ```
 
-### `groupByModel`
 
-Similar to `groupBy`, but groups the collection by an Eloquent model. Since the key is an object instead of an integer or string, the results are divided into separate arrays.
-
-```php
-$posts->groupByModel('category');
-
-// [
-//     [$categoryA, [/*...$posts*/]],
-//     [$categoryB, [/*...$posts*/]],
-// ];
-```
-
-Full signature: `groupByModel($callback, $preserveKeys, $modelKey, $itemsKey)`
-
-### `head`
-
-Retrieves first item from the collection.
-
-```php
-$collection = collect([1,2,3]);
-
-$collection->head(); // return 1
-
-$collection = collect([]);
-
-$collection->head(); // return null
-```
 
 ### `ifAny`
 
@@ -363,6 +94,8 @@ collect([1, 2, 3])->ifAny(function(Collection $collection) { // non-empty collec
 });
 ```
 
+
+
 ### `ifEmpty`
 
 Executes the passed callable if the collection is empty. The entire collection will be returned.
@@ -376,6 +109,34 @@ collect([1, 2, 3])->ifEmpty(function(Collection $collection) { // non-empty coll
    echo 'Hello';
 });
 ```
+
+
+
+### `keepValues`
+
+Returns a collection containing only values that were in the given list.
+
+```php
+collect(['foo', 'bar'])->keepValues(['foo'])->toArray(); // ['foo']
+```
+
+`keepValues` accepts a second parameter to turn strict-comparisons on (default *false*).
+
+```php
+collect(['123', 456])->keepValues(['123', '456'], true)->toArray(); // ['123']
+```
+
+
+
+### `keyedKeys`
+
+Returns a collection where the values are the same as the keys.
+
+```php
+collect(['foo' => 1, 'bar' => 2])->keyedKeys()->toArray(); // ['foo' => 'foo', 'bar' => 'bar']
+```
+
+
 
 ### `none`
 
@@ -393,6 +154,8 @@ collect(['name' => 'foo'])->none(function ($key, $value) {
 }); // returns true
 ```
 
+
+
 ### `paginate`
 
 Create a `LengthAwarePaginator` instance for the items in the collection.
@@ -407,59 +170,7 @@ This paginates the contents of `$posts` with 5 items per page. `paginate` accept
 paginate(int $perPage = 15, string $pageName = 'page', int $page = null, int $total = null, array $options = [])
 ```
 
-### `parallelMap`
 
-Identical to `map` but each item in the collection will be processed in parallel. Before using this macro you should pull in the `amphp/parallel-functions` package.
-
-```bash
-composer require amphp/parallel-functions
-```
-
-Be aware that under the hood some overhead is introduced to make the parallel processing possible. When your `$callable` is only a simple operation it's probably better to use `map` instead. Also keep in mind that `parallelMap` can be memory intensive.
-
-```php
-$pageSources = collect($urls)->parallelMap(function($url) {
-    return file_get_contents($url);
-});
-```
-
-The page contents of the given `$urls` will be fetched at the same time. The underlying `amp` sets a maximum of `32` concurrent processes by default.
-
-There is a second (optional) parameter, through which you can define a custom parallel processing pool. It looks like this:
-
-```php
-use Amp\Parallel\Worker\DefaultPool;
-
-$pool = new DefaultPool(8);
-
-$pageSources = collect($urls)->parallelMap(function($url) {
-    return file_get_contents($url);
-}, $pool);
-```
-
-If you don't need to extend the worker pool, or can't be bothered creating the new pool yourself; you can use an integer the the number of workers you'd like to use. A new `DefaultPool` will be created for you:
-
-```php
-$pageSources = collect($urls)->parallelMap(function($url) {
-    return file_get_contents($url);
-}, 8);
-```
-
-This helps to reduce the memory overhead, as the default worker pool limit is `32` (as defined in `amphp/parallel`). Using fewer worker threads can significantly reduce memory and processing overhead, in many cases. Benchmark and customise the worker thread limit to suit your particular use-case.
-
-### `pluckToArray`
-
-Returns array of values of a given key.
-
-```php
-$collection = collect([
-    ['a' => 1, 'b' => 10],
-    ['a' => 2, 'b' => 20],
-    ['a' => 3, 'b' => 30]
-]);
-
-$collection->pluckToArray('a'); // returns [1, 2, 3]
-```
 
 ### `prioritize`
 
@@ -480,51 +191,23 @@ $collection
    ->toArray(); // returns [2, 1, 3]
 ```
 
-### `rotate`
 
-Rotate the items in the collection with given offset
 
-```php
-$collection = collect([1, 2, 3, 4, 5, 6]);
+### `rejectValues`
 
-$rotate = $collection->rotate(1);
-
-$rotate->toArray();
-
-// [2, 3, 4, 5, 6, 1]
-```
-
-### `sectionBy`
-
-Splits a collection into sections grouped by a given key. Similar to `groupBy` but respects the order of the items in the collection and reuses existing keys.
+Removes the given values from the collection.
 
 ```php
-$collection = collect([
-    ['name' => 'Lesson 1', 'module' => 'Basics'],
-    ['name' => 'Lesson 2', 'module' => 'Basics'],
-    ['name' => 'Lesson 3', 'module' => 'Advanced'],
-    ['name' => 'Lesson 4', 'module' => 'Advanced'],
-    ['name' => 'Lesson 5', 'module' => 'Basics'],
-]);
-
-$collection->sectionBy('module');
-
-// [
-//     ['Basics', [
-//         ['name' => 'Lesson 1', 'module' => 'Basics'],
-//         ['name' => 'Lesson 2', 'module' => 'Basics'],
-//     ]],
-//     ['Advanced', [
-//         ['name' => 'Lesson 3', 'module' => 'Advanced'],
-//         ['name' => 'Lesson 4', 'module' => 'Advanced'],
-//     ]],
-//     ['Basics', [
-//         ['name' => 'Lesson 5', 'module' => 'Basics'],
-//     ]],
-// ];
+collect(['foo', 'bar'])->rejectValues(['foo'])->toArray(); // ['bar']
 ```
 
-Full signature: `sectionBy($callback, $preserveKeys, $sectionKey, $itemsKey)`
+`rejectValues` accepts a second parameter to turn strict-comparisons on (default *false*).
+
+```php
+collect(['123', 456])->rejectValues(['123', '456'], true)->toArray(); // [456]
+```
+
+
 
 ### `simplePaginate`
 
@@ -542,51 +225,7 @@ simplePaginate(int $perPage = 15, string $pageName = 'page', int $page = null, i
 
 For a in-depth guide on pagination, check out [the Laravel docs](https://laravel.com/docs/5.4/pagination).
 
-### `sliceBefore`
 
-Slice the values out from a collection before the given callback is true. If the optional parameter `$preserveKeys` as `true` is passed, it will preserve the original keys.
-
-```php
-collect([20, 51, 10, 50, 66])->sliceBefore(function($item) {
-    return $item > 50;
-}); // return collect([[20],[51, 10, 50], [66])
-```
-
-### `tail`
-
-Extract the tail from a collection. So everything except the first element. It's a shorthand for `slice(1)->values()`, but nevertheless very handy. If the optional parameter `$preserveKeys` as `true` is passed, it will preserve the keys and fallback to `slice(1)`.
-
-```php
-collect([1, 2, 3])->tail(); // return collect([2, 3])
-```
-
-### `toPairs`
-
-Transform a collection into an array with pairs.
-
-```php
-$collection = collect(['a' => 'b', 'c' => 'd', 'e' => 'f'])->toPairs();
-
-$collection->toArray(); // returns ['a', 'b'], ['c', 'd'], ['e', 'f']
-```
-
-### `transpose`
-
-The goal of transpose is to rotate a multidimensional array, turning the rows into columns and the columns into rows.
-
-```php
-collect([
-    ['Jane', 'Bob', 'Mary'],
-    ['jane@example.com', 'bob@example.com', 'mary@example.com'],
-    ['Doctor', 'Plumber', 'Dentist'],
-])->transpose()->toArray();
-
-// [
-//     ['Jane', 'jane@example.com', 'Doctor'],
-//     ['Bob', 'bob@example.com', 'Plumber'],
-//     ['Mary', 'mary@example.com', 'Dentist'],
-// ]
-```
 
 ### `try`
 
@@ -627,6 +266,28 @@ $collection = collect(['a', 'b', 'c', 1, 2, 3])
 // ['D', 'E', 'F']
 ```
 
+
+
+### `transpose`
+
+The goal of transpose is to rotate a multidimensional array, turning the rows into columns and the columns into rows.
+
+```php
+collect([
+    ['Jane', 'Bob', 'Mary'],
+    ['jane@example.com', 'bob@example.com', 'mary@example.com'],
+    ['Doctor', 'Plumber', 'Dentist'],
+])->transpose()->toArray();
+
+// [
+//     ['Jane', 'jane@example.com', 'Doctor'],
+//     ['Bob', 'bob@example.com', 'Plumber'],
+//     ['Mary', 'mary@example.com', 'Dentist'],
+// ]
+```
+
+
+
 ### `validate`
 
 Returns `true` if the given `$callback` returns true for every item. If `$callback` is a string or an array, regard it as a validation rule.
@@ -641,18 +302,13 @@ collect(['sebastian@spatie.be', 'bla'])->validate('email'); // returns false
 collect(['sebastian@spatie.be', 'freek@spatie.be'])->validate('email'); // returns true
 ```
 
-### `withSize`
 
-Create a new collection with the specified amount of items.
-
-```php
-Collection::withSize(1)->toArray(); // return [1];
-Collection::withSize(5)->toArray(); // return [1,2,3,4,5];
-```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+
 
 ## Testing
 
@@ -660,22 +316,28 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 $ composer test
 ```
 
+
+
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Contributions are not being sought for this package. Please see the original [spatie/laravel-collection-macros](https://github.com/spatie/laravel-collection-macros) package if you would like to contribute.
+
+
 
 ## Security
 
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
+If you discover any security related issues, please email tim@code-distortion.net instead of using the issue tracker.
+
+
 
 ## Credits
 
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
+- [Tim Chandler](https://github.com/code-distortion) (fork)
 - [All Contributors](../../contributors)
 
-## About Spatie
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
 
 ## License
 

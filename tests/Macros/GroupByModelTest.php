@@ -9,7 +9,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class GroupByModelTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_with_a_callable()
     {
         [$model1, $model2, $collection] = $this->getDummies();
@@ -36,7 +39,10 @@ class GroupByModelTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_with_a_callable_and_custom_key_names()
     {
         [$model1, $model2, $collection] = $this->getDummies();
@@ -68,7 +74,10 @@ class GroupByModelTest extends TestCase
         })->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_with_a_key()
     {
         [$model1, $model2, $collection] = $this->getDummies();
@@ -93,7 +102,10 @@ class GroupByModelTest extends TestCase
         }
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_with_a_key_and_custom_key_names()
     {
         [$model1, $model2, $collection] = $this->getDummies();
@@ -123,7 +135,10 @@ class GroupByModelTest extends TestCase
         })->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_with_a_key_and_a_custom_items_key()
     {
         [$model1, $model2, $collection] = $this->getDummies();
@@ -153,7 +168,10 @@ class GroupByModelTest extends TestCase
         })->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_group_a_collection_by_a_model_and_preserve_keys()
     {
         [$model1, $model2, $collection] = $this->getDummies();

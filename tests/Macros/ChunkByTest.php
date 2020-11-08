@@ -7,13 +7,19 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class ChunkByTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_provides_chunk_by_macro()
     {
         $this->assertTrue(Collection::hasMacro('chunkBy'));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_chunk_the_collection_with_a_given_callback()
     {
         $collection = new Collection(['A', 'A', 'A', 'B', 'B', 'A', 'A', 'C', 'B', 'B', 'A']);
@@ -33,7 +39,10 @@ class ChunkByTest extends TestCase
         $this->assertEquals($expected, $chunkedBy->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_chunk_the_collection_with_a_given_callback_with_associative_keys()
     {
         $collection = new Collection(['a' => 'A', 'b' => 'A', 'c' => 'A', 'd' => 'B', 'e' => 'B', 'f' => 'A', 'g' => 'A', 'h' => 'C', 'i' => 'B', 'j' => 'B', 'k' => 'A']);
@@ -53,7 +62,10 @@ class ChunkByTest extends TestCase
         $this->assertEquals($expected, $chunkedBy->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_chunk_the_collection_with_a_given_callback_and_preserve_the_original_keys()
     {
         $collection = new Collection(['A', 'A', 'A', 'B', 'B', 'A', 'A', 'C', 'B', 'B', 'A']);
@@ -73,7 +85,10 @@ class ChunkByTest extends TestCase
         $this->assertEquals($expected, $chunkedBy->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_chunk_the_collection_with_a_given_callback_with_associative_keys_and_preserve_the_original_keys()
     {
         $collection = new Collection(['a' => 'A', 'b' => 'A', 'c' => 'A', 'd' => 'B', 'e' => 'B', 'f' => 'A', 'g' => 'A', 'h' => 'C', 'i' => 'B', 'j' => 'B', 'k' => 'A']);

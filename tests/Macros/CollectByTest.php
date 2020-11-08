@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class CollectByTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_a_collection_containing_the_collected_items()
     {
         $collection = new Collection([
@@ -33,7 +36,10 @@ class CollectByTest extends TestCase
         ], $ingredients->toArray());
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_default_when_key_is_missing()
     {
         $collection = new Collection([
@@ -52,7 +58,10 @@ class CollectByTest extends TestCase
         $this->assertEquals($collection->collectBy('ingredients'), $ingredients);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_empty_collection_when_missing_key_without_default()
     {
         $collection = new Collection([

@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class AfterTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_retrieve_an_item_that_comes_after_an_item()
     {
         $data = new Collection([1, 2, 3]);
@@ -15,7 +18,10 @@ class AfterTest extends TestCase
         $this->assertEquals(2, $data->after(1));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_retrieves_items_by_value_and_doesnt_reorder_them()
     {
         $data = new Collection([
@@ -28,7 +34,10 @@ class AfterTest extends TestCase
         $this->assertEquals(1, $data->after(3));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_find_the_next_item_in_a_collection_of_strings()
     {
         $data = new Collection([
@@ -39,7 +48,10 @@ class AfterTest extends TestCase
         $this->assertEquals('foo', $data->after('bar'));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_find_the_next_item_based_on_a_callback()
     {
         $data = new Collection([3, 1, 2]);
@@ -51,7 +63,10 @@ class AfterTest extends TestCase
         $this->assertEquals(1, $result);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_null_if_there_isnt_a_next_item()
     {
         $data = new Collection([1, 2, 3]);
@@ -59,7 +74,10 @@ class AfterTest extends TestCase
         $this->assertNull($data->after(3));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_return_a_fallback_value_if_there_isnt_a_next_item()
     {
         $data = new Collection([1, 2, 3]);

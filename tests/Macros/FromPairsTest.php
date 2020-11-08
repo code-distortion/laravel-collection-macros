@@ -7,13 +7,19 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class FromPairsTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_provides_a_fromPairs_macro()
     {
         $this->assertTrue(Collection::hasMacro('fromPairs'));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_can_transform_a_collection_into_an_associative_array()
     {
         $this->assertEquals([

@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class AtTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_retrieves_an_item_by_positive_index()
     {
         $data = new Collection([1, 2, 3]);
@@ -15,7 +18,10 @@ class AtTest extends TestCase
         $this->assertEquals(2, $data->at(1));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_retrieves_an_item_by_negative_index()
     {
         $data = new Collection([1, 2, 3]);
@@ -23,7 +29,10 @@ class AtTest extends TestCase
         $this->assertEquals(3, $data->at(-1));
     }
 
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_retrieves_an_item_by_zero_index()
     {
         $data = new Collection([1, 2, 3]);

@@ -11,13 +11,13 @@ use Illuminate\Support\Collection;
  *
  * @mixin \Illuminate\Support\Collection
  *
- * @return \Illuminate\Support\Collection
+ * @return \Illuminate\Support\Collection|\Illuminate\Support\LazyCollection
  */
 class Prioritize
 {
     public function __invoke()
     {
-        return function (callable $callable): Collection {
+        return function (callable $callable): self {
             $nonPrioritized = $this->reject($callable);
 
             return $this

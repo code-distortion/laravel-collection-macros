@@ -33,7 +33,7 @@ class Validate
                 };
             }
 
-            foreach ($this->items as $item) {
+            foreach ($this->values() as $item) {
                 if (! $callback($item)) {
                     return false;
                 }

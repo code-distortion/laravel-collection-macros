@@ -1,24 +1,15 @@
 {
-    "name": "spatie/laravel-collection-macros",
-    "description": "A set of useful Laravel collection macros",
+    "name": "code-distortion/laravel-collection-macros",
+    "description": "A set of useful Laravel collection macros - a spatie/laravel-collection-macros fork",
     "keywords": [
-        "spatie",
         "laravel-collection-macros"
     ],
-    "homepage": "https://github.com/spatie/laravel-collection-macros",
+    "homepage": "https://github.com/code-distortion/laravel-collection-macros",
     "license": "MIT",
     "authors": [
         {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
-            "homepage": "https://github.com/freekmurze",
-            "role": "Developer"
-        },
-        {
-            "name": "Sebastian De Deyne",
-            "email": "sebastian@spatie.be",
-            "homepage": "https://github.com/sebastiandedeyne",
-            "role": "Developer"
+            "name": "Tim Chandler",
+            "email": "tim@code-distortion.net"
         }
     ],
     "require": {
@@ -35,7 +26,6 @@
         "symfony/stopwatch": "^5.0"
     },
     "suggest": {
-        "amphp/parallel-functions": "Required when using the parallel*-macros."
     },
     "autoload": {
         "psr-4": {
@@ -49,7 +39,7 @@
     },
     "scripts": {
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit --exclude-group=ignore"
     },
     "config": {
         "sort-packages": true

@@ -3,18 +3,73 @@
 namespace Spatie\CollectionMacros;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
 use Illuminate\Support\ServiceProvider;
+use Spatie\CollectionMacros\Exceptions\CannotApplyMacroException;
 
 class CollectionMacroServiceProvider extends ServiceProvider
 {
+    /**
+     * Macros that aren't usable by the LazyCollection.
+     *
+     * @return string[]
+     */
+    protected array $nonLazyMacros = [
+        'extract',
+        'paginate',
+        'transpose',
+    ];
+
+    /**
+     * The Spatie macros to use (the rest are skipped).
+     *
+     * @return string[]
+     */
+    protected array $spatiePickList = [
+        'extract',
+        'ifAny',
+        'ifEmpty',
+        'none',
+        'paginate',
+        'prioritize',
+        'simplePaginate',
+        'transpose',
+        'try',
+        'validate',
+    ];
+
+    /**
+     * Additional custom macros.
+     *
+     * @return string[]
+     */
+    protected array $customMacros = [
+        'keepValues' => \Spatie\CollectionMacros\CustomMacros\KeepValues::class,
+        'keyedKeys' => \Spatie\CollectionMacros\CustomMacros\KeyedKeys::class,
+        'rejectValues' => \Spatie\CollectionMacros\CustomMacros\RejectValues::class,
+    ];
+
     public function register()
     {
-        Collection::make($this->macros())
+        $spatiePickList = array_combine($this->spatiePickList, $this->spatiePickList);
+
+        $macros = Collection::make($this->macros())
+            ->intersectByKeys($spatiePickList) // remove unneeded spatie macros
+            ->merge($this->customMacros);
+
+        $macros
             ->reject(fn ($class, $macro) => Collection::hasMacro($macro))
+            ->each($this->checkForCollectionMethod(Collection::class))
             ->each(fn ($class, $macro) => Collection::macro($macro, app($class)()));
+
+        $macros
+            ->reject(fn ($class, $macro) => in_array($macro, $this->nonLazyMacros))
+            ->reject(fn ($class, $macro) => LazyCollection::hasMacro($macro))
+            ->each($this->checkForCollectionMethod(LazyCollection::class))
+            ->each(fn ($class, $macro) => LazyCollection::macro($macro, app($class)()));
     }
 
-    private function macros(): array
+    public function macros(): array
     {
         return [
             'after' => \Spatie\CollectionMacros\Macros\After::class,
@@ -57,5 +112,20 @@ class CollectionMacroServiceProvider extends ServiceProvider
             'validate' => \Spatie\CollectionMacros\Macros\Validate::class,
             'withSize' => \Spatie\CollectionMacros\Macros\WithSize::class,
         ];
+    }
+
+    /**
+     * Return a method that checks if the given method exists in the Collection class.
+     *
+     * @param string $collectionClass The Collection class to check against.
+     * @return \Closure
+     */
+    private function checkForCollectionMethod(string $collectionClass)
+    {
+        return function ($class, $macro) use ($collectionClass) {
+            if (method_exists($collectionClass, $macro)) {
+                throw CannotApplyMacroException::methodAlreadyExists($macro, $collectionClass);
+            }
+        };
     }
 }

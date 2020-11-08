@@ -7,7 +7,10 @@ use Spatie\CollectionMacros\Test\TestCase;
 
 class FilterMapTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test
+     * @group ignore
+     */
     public function it_returns_a_mapped_collection_without_empty_values()
     {
         $result = Collection::make([1, 2, 3, 4, 5, 6])->filterMap(function ($number) {
