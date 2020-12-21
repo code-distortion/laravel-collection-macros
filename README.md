@@ -4,7 +4,6 @@
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/code-distortion/laravel-collection-macros?style=flat-square)
 ![Laravel](https://img.shields.io/badge/laravel-7%20%26%208-blue?style=flat-square)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/code-distortion/laravel-collection-macros/run-tests?label=tests&style=flat-square)](https://github.com/code-distortion/laravel-collection-macros/actions)
-[![Buy us a tree](https://img.shields.io/badge/treeware-%F0%9F%8C%B3-lightgreen?style=flat-square)](https://ecologi.com/treeware?gift-trees)
 
 This package is a fork of [spatie/laravel-collection-macros](https://github.com/spatie/laravel-collection-macros). It contains a subset of the original macros as well as a few extra ones.
 
